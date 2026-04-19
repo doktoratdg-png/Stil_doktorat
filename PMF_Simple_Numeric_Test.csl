@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<style xmlns="http://purl.org/net/xbiblio/csl" version="1.0" class="in-text">
+  <info>
+    <title>PMF Simple Numeric Test</title>
+    <id>http://www.zotero.org/styles/pmf-simple-numeric-test</id>
+    <link href="http://www.zotero.org/styles/pmf-simple-numeric-test" rel="self"/>
+    <updated>2026-04-19T00:00:00+00:00</updated>
+    <category citation-format="numeric"/>
+    <author>
+      <name>OpenAI</name>
+    </author>
+    <summary>Very simple numeric CSL for Mendeley testing.</summary>
+  </info>
+
+  <locale xml:lang="hr">
+    <terms>
+      <term name="and">i</term>
+    </terms>
+  </locale>
+
+  <citation collapse="citation-number">
+    <layout prefix="[" suffix="]" delimiter=", ">
+      <text variable="citation-number"/>
+    </layout>
+  </citation>
+
+  <bibliography>
+    <layout suffix=".">
+      <text variable="citation-number" suffix=". "/>
+      <names variable="author" delimiter=", ">
+        <name initialize-with=". " form="short"/>
+      </names>
+      <text variable="container-title" prefix=", " font-style="italic"/>
+      <date variable="issued" prefix=", (" suffix=")">
+        <date-part name="year"/>
+      </date>
+      <text variable="volume" prefix=", " font-weight="bold"/>
+      <text variable="page" prefix=", "/>
+    </layout>
+  </bibliography>
+</style>
