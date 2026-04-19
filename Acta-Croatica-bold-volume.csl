@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<style xmlns="http://purl.org/net/xbiblio/csl" version="1.0">
+  <info>
+    <title>Acta Croatica Custom Numeric (Final Bold Volume)</title>
+    <id>http://www.zotero.org/styles/acta-croatica-custom-final-bold</id>
+    <author>
+      <name>Custom</name>
+    </author>
+    <category citation-format="numeric"/>
+    <updated>2026-04-19T00:00:00+00:00</updated>
+  </info>
+
+  <locale xml:lang="hr">
+    <terms>
+      <term name="and">i</term>
+      <term name="page">str.</term>
+    </terms>
+  </locale>
+
+  <citation collapse="citation-number">
+    <layout prefix="[" suffix="]" delimiter=",">
+      <text variable="citation-number"/>
+    </layout>
+  </citation>
+
+  <bibliography>
+    <layout>
+      <text variable="citation-number" suffix=". "/>
+
+      <names variable="author" delimiter=", ">
+        <name form="short" initialize-with="."/>
+      </names>
+
+      <text variable="container-title" prefix=", " font-style="italic"/>
+
+      <text variable="volume" prefix=" " font-weight="bold"/>
+
+      <date variable="issued" prefix=" (" suffix=")">
+        <date-part name="year"/>
+      </date>
+
+      <text variable="page" prefix=" str. "/>
+    </layout>
+  </bibliography>
+</style>
