@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<style xmlns="http://purl.org/net/xbiblio/csl" version="1.0" class="in-text" default-locale="hr-HR">
+  <info>
+    <title>Acta Croatica Custom Numeric (PMF)</title>
+    <id>http://www.zotero.org/styles/acta-croatica-custom-pmf</id>
+    <link href="http://www.zotero.org/styles/acta-croatica-custom-pmf" rel="self"/>
+    <updated>2026-04-19T00:00:00+00:00</updated>
+    <category citation-format="numeric"/>
+    <category field="chemistry"/>
+    <summary>Numeric PMF-like style: and -> i, year in parentheses, journal volume bold.</summary>
+    <author>
+      <name>OpenAI</name>
+    </author>
+  </info>
+
+  <locale xml:lang="hr-HR">
+    <terms>
+      <term name="and">i</term>
+      <term name="editor" form="short">ur.</term>
+      <term name="editors" form="short">ur.</term>
+      <term name="page">str.</term>
+    </terms>
+  </locale>
+
+  <macro name="author">
+    <names variable="author" delimiter=", ">
+      <name form="short" initialize-with=". " delimiter=", " sort-separator=" " name-as-sort-order="all"/>
+    </names>
+  </macro>
+
+  <macro name="editor">
+    <names variable="editor" delimiter=", ">
+      <name form="short" initialize-with=". " delimiter=", " sort-separator=" " name-as-sort-order="all"/>
+      <label form="short" prefix=", "/>
+    </names>
+  </macro>
+
+  <macro name="year">
+    <date variable="issued" prefix=" (" suffix=")">
+      <date-part name="year"/>
+    </date>
+  </macro>
+
+  <macro name="pages">
+    <choose>
+      <if variable="page">
+        <text variable="page" prefix=" " />
+      </if>
+    </choose>
+  </macro>
+
+  <citation collapse="citation-number">
+    <layout prefix="[" suffix="]" delimiter=", ">
+      <text variable="citation-number"/>
+    </layout>
+  </citation>
+
+  <bibliography entry-spacing="0" second-field-align="flush">
+    <layout>
+      <text variable="citation-number" suffix=". "/>
+      <choose>
+        <if type="article-journal article-magazine article-newspaper paper-conference" match="any">
+          <text macro="author"/>
+          <text variable="container-title" prefix=", " font-style="italic"/>
+          <text macro="year"/>
+          <text variable="volume" prefix=", " font-weight="bold"/>
+          <text variable="issue" prefix=", " suffix=""/>
+          <text variable="page" prefix=", "/>
+          <text value="."/>
+        </if>
+
+        <else-if type="chapter paper-conference entry-encyclopedia" match="any">
+          <text macro="author"/>
+          <text variable="title" prefix=", " font-style="italic"/>
+          <group prefix=", u ">
+            <text macro="editor"/>
+            <text variable="container-title" font-style="italic"/>
+          </group>
+          <text variable="publisher" prefix=", "/>
+          <text variable="publisher-place" prefix=", "/>
+          <text macro="year"/>
+          <text variable="page" prefix=", str. "/>
+          <text value="."/>
+        </else-if>
+
+        <else-if type="book thesis report webpage" match="any">
+          <text macro="author"/>
+          <text variable="title" prefix=", " font-style="italic"/>
+          <choose>
+            <if type="thesis">
+              <text value=", Doktorski rad"/>
+            </if>
+            <else-if type="report">
+              <text value=", izvještaj"/>
+            </else-if>
+          </choose>
+          <text variable="publisher" prefix=", "/>
+          <text variable="publisher-place" prefix=", "/>
+          <text macro="year"/>
+          <text variable="page" prefix=", str. "/>
+          <choose>
+            <if type="webpage">
+              <text variable="URL" prefix=", "/>
+              <date variable="accessed" prefix=" (preuzeto " suffix=")">
+                <date-part name="day" suffix=". "/>
+                <date-part name="month" form="long" suffix=" "/>
+                <date-part name="year"/>
+              </date>
+            </if>
+          </choose>
+          <text value="."/>
+        </else-if>
+
+        <else>
+          <text macro="author"/>
+          <text variable="title" prefix=", " font-style="italic"/>
+          <text variable="container-title" prefix=", " font-style="italic"/>
+          <text macro="year"/>
+          <text variable="volume" prefix=", " font-weight="bold"/>
+          <text variable="page" prefix=", "/>
+          <text value="."/>
+        </else>
+      </choose>
+    </layout>
+  </bibliography>
+</style>
